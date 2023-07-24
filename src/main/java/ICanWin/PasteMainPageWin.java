@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class PasteMainPage {
+public class PasteMainPageWin extends AbstractPage{
     private static final String URL = "https://pastebin.com";
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     @FindBy(xpath = "//textarea[@id='postform-text']")
     private WebElement textFiled;
@@ -31,18 +31,18 @@ public class PasteMainPage {
     @FindBy(xpath = "//button[normalize-space()='Create New Paste']")
     private WebElement buttonCreate;
 
-    public PasteMainPage(WebDriver driver){
-        this.driver=driver;
+    public PasteMainPageWin(WebDriver driver){
+        this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver,this);
     }
 
-    public PasteMainPage openURL(){
+    public PasteMainPageWin openURL(){
         driver.get(URL);
         return this;
     }
 
-    public PasteMainPage clickAcceptButton(){
+    public PasteMainPageWin clickAcceptButton(){
         wait
                 .until(ExpectedConditions
                         .visibilityOfElementLocated(By
@@ -51,7 +51,7 @@ public class PasteMainPage {
         return this;
     }
 
-    public PasteMainPage clickAcceptAllButton(){
+    public PasteMainPageWin clickAcceptAllButton(){
         wait
                 .until(ExpectedConditions
                         .visibilityOfElementLocated(By
@@ -60,20 +60,21 @@ public class PasteMainPage {
         return this;
     }
 
-    public PasteMainPage enterText(){
+    public PasteMainPageWin enterText(){
         textFiled.sendKeys("Hello from WebDriver");
         return this;
     }
 
-    public PasteMainPage selectExpiration(){
+    public PasteMainPageWin selectExpiration(){
         dropdownMenu.click();
         time.click();
         return this;
     }
 
-    public PasteMainPage enterName(){
+    public PasteMainPageWin enterName(){
         nameFiled.sendKeys("helloweb");
         buttonCreate.click();
         return this;
     }
+
 }
