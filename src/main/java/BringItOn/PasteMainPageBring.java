@@ -62,7 +62,7 @@ public class PasteMainPageBring extends AbstractPage {
                 .until(ExpectedConditions
                         .visibilityOfElementLocated(By
                                 .xpath("//button[@type='button']")))
-                .click();
+                                .click();
         return this;
     }
 
@@ -71,7 +71,7 @@ public class PasteMainPageBring extends AbstractPage {
                 .until(ExpectedConditions
                         .visibilityOfElementLocated(By
                                 .xpath("//div[@class='qc-cmp2-buttons-desktop']/button[@mode='secondary']")))
-                .click();
+                                .click();
         return this;
     }
 
@@ -114,4 +114,5 @@ public class PasteMainPageBring extends AbstractPage {
     public String getText() {
         return text;
     }
+
 }

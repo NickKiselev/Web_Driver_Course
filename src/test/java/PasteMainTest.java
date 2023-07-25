@@ -11,20 +11,25 @@ public class PasteMainTest {
     private WebDriver driver;
 
     @BeforeMethod
-    private void setup(){
+    private void setup()  {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
     @Test
-    private void launchTheScript(){
-         new PasteMainPageWin(driver)
+    private void launchTheScriptWithActions() {
+        new PasteMainPageWin(driver)
                  .openURL()
-                 .clickAcceptButton()
-                 .clickAcceptAllButton()
+                 .pageDownAction()
+                 //.clickAcceptButton() //accept cookies modal
+                 //.clickAcceptAllButton()  //accept cookies modal
+                 .switchSyntaxAction()
                  .enterText()
                  .selectExpiration()
-                 .enterName();
+                 .enterName()
+                 .clickOnElementWithJS()
+                 .highlightElementWithJS();
+
         try {
             Thread.sleep(7000);
         } catch (InterruptedException e) {
@@ -37,8 +42,8 @@ public class PasteMainTest {
         String expectedPageTitle = "how to gain dominance among developers - Pastebin.com";
         String actualPageTitle = new PasteMainPageBring(driver)
                 .openURL()
-                .clickAcceptButton()
-                .clickAcceptAllButton()
+                //.clickAcceptButton() //accept cookies modal
+                //.clickAcceptAllButton()  //accept cookies modal
                 .enterText()
                 .selectSyntax()
                 .selectExpiration()
@@ -46,7 +51,6 @@ public class PasteMainTest {
                 .getPageTitle();
 
         String syntaxActual = new PasteMainPageBring(driver).getClassValue();
-
         String expectedText = new PasteMainPageBring(driver).getText();
         String actualText = new PasteMainPageBring(driver).getSourceText();
 
@@ -54,6 +58,7 @@ public class PasteMainTest {
         Assert.assertEquals(syntaxActual,"bash","This is not a bash");
         Assert.assertEquals(actualText,expectedText,"Text is not equals");
     }
+
 
     @AfterMethod
     private void closeDriver(){
