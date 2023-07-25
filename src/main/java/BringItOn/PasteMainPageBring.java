@@ -22,6 +22,7 @@ public class PasteMainPageBring extends AbstractPage {
 
     @FindBy(xpath = "//textarea[@id='postform-text']")
     private WebElement textFiled;
+    
     @FindBy(xpath = "//span[@id='select2-postform-format-container']")
     private WebElement formatContainer;
 
