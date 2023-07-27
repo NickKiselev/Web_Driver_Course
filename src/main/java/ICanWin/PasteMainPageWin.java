@@ -11,10 +11,6 @@ import java.time.Duration;
 
 public class PasteMainPageWin extends AbstractPage{
     private static final String URL = "https://pastebin.com";
-    private WebDriver driver;
-    private Actions builder;
-
-    private WebDriverWait wait;
 
     @FindBy(xpath = "//textarea[@id='postform-text']")
     private WebElement textFiled;
@@ -38,7 +34,7 @@ public class PasteMainPageWin extends AbstractPage{
     private WebElement sourceText;
 
     public PasteMainPageWin(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         builder = new Actions(driver);
         PageFactory.initElements(driver,this);

@@ -1,9 +1,18 @@
 package ICanWin;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPage {
-    private WebDriver driver;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions builder;
+    protected static final String URL = "https://pastebin.com";
+
+    public AbstractPage(WebDriver driver){
+        this.driver=driver;
+    }
 
     public AbstractPage openURL(){
         return this;

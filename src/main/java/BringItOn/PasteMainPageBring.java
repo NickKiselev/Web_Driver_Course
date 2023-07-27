@@ -12,9 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class PasteMainPageBring extends AbstractPage {
-    private static final String URL = "https://pastebin.com";
-    private WebDriver driver;
-    private WebDriverWait wait;
 
     private String text = "\"git config --global user.name  \\\"New Sheriff in Town\\\"\\n\" +\n" +
             "\"git reset $(git commit-tree HEAD^{tree} -m \\\"Legacy code\\\")\\n\" +\n" +
@@ -48,7 +45,7 @@ public class PasteMainPageBring extends AbstractPage {
     private WebElement sourceText;
 
     public PasteMainPageBring(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver,this);
     }

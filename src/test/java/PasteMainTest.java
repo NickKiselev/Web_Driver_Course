@@ -21,8 +21,8 @@ public class PasteMainTest {
         new PasteMainPageWin(driver)
                  .openURL()
                  .pageDownAction()
-                 //.clickAcceptButton() //accept cookies modal
-                 //.clickAcceptAllButton()  //accept cookies modal
+                 .clickAcceptButton() //accept cookies modal
+                 .clickAcceptAllButton()  //accept cookies modal
                  .switchSyntaxAction()
                  .enterText()
                  .selectExpiration()
@@ -42,8 +42,8 @@ public class PasteMainTest {
         String expectedPageTitle = "how to gain dominance among developers - Pastebin.com";
         String actualPageTitle = new PasteMainPageBring(driver)
                 .openURL()
-                //.clickAcceptButton() //accept cookies modal
-                //.clickAcceptAllButton()  //accept cookies modal
+                .clickAcceptButton() //accept cookies modal
+                .clickAcceptAllButton()  //accept cookies modal
                 .enterText()
                 .selectSyntax()
                 .selectExpiration()
